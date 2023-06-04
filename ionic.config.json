@@ -1,0 +1,7 @@
+{
+  "name": "simples",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
