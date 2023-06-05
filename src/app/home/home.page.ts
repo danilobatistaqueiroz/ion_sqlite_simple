@@ -3,7 +3,7 @@ import { Platform } from '@ionic/angular';
 import { App } from '@capacitor/app';
 import { Product } from '../models/product';
 
-import { CapacitorSQLite, CapacitorSQLitePlugin, JsonSQLite, SQLiteConnection, SQLiteDBConnection, capSQLiteResult, capSQLiteUpgradeOptions } from '@capacitor-community/sqlite';
+import { CapacitorSQLite, CapacitorSQLitePlugin, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
 import { Capacitor } from '@capacitor/core';
 
 @Component({
@@ -105,10 +105,6 @@ export class HomePage implements OnInit {
 
   exitApp() {
     App.exitApp();
-  }
-
-  openSqlite(){
-
   }
 
   async insertProduct(name:string='iPhone7',description:string='novo iphone',price:number=1000){

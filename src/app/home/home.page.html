@@ -12,7 +12,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button color="success" (click)="openSqlite()">Abrir Sqlite</ion-button>
   <ion-button color="danger" (click)="insertProduct('Nexus8','nexus está com tudo',3000)">Inserir Produto</ion-button>
   <ion-button color="warning" (click)="getAllProducts()">Consultar Produtos</ion-button>
   <div *ngFor="let product of products">
