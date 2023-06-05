@@ -1,5 +1,5 @@
 
-ionic start simples blank --type=angular --capacitor --project-id=sql-simples --package-id=br.labs.simple
+`ionic start simples blank --type=angular --capacitor --project-id=sql-simples --package-id=br.labs.simple`
 
 "simples" será o appName, nome que vai aparecer no ícone e nas listagens no Android.
 
@@ -9,6 +9,7 @@ ionic start simples blank --type=angular --capacitor --project-id=sql-simples --
 
 
 
+```sh
 pnpm install --save @capacitor-community/sqlite
 pnpm install --save jeep-sqlite
 pnpm install --save sql.js
@@ -16,6 +17,7 @@ pnpm i @ionic/pwa-elements
 
 
 copyfiles node_modules/sql.js/dist/sql-wasm.wasm src/assets
+```
 
 
 app.module.ts  
@@ -66,12 +68,15 @@ if(platform === "web") {
 
 
 ### Install ionic app in an Android device ###
+```sh
 export JAVA_HOME=~/android-studio/jbr
 sudo update-alternatives --config java
 cd android
 gradle signingReport
+```  
 
 ### install using gradle ###
+```sh
 jarsigner -verbose -keystore ~/.android/debug.keystore ./app/build/outputs/apk/debug/app-debug.apk AndroidDebugKey
 alias zipalign=~/android-sdk/build-tools/30.0.3/zipalign
 zipalign -v 4 ./app/build/outputs/apk/debug/app-debug.apk authemail.apk
@@ -82,18 +87,18 @@ cd android
     ./gradlew assembleDebug
     ./gradlew installDebug
 adb shell am start -n "br.labs.simple/br.labs.simple.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
+```
 
 ### Analisar logcat da aplicação ###
-
 adb logcat --pid=`adb shell pidof -s br.labs.simple`
 
 **consultar os últimos 500 logs**  
-adb logcat -t 500
+`adb logcat -t 500`
 
 **listar apenas os logs da sessão excluindo anteriores**  
-adb logcat -L
+`adb logcat -L`
 
 **listar por data**  
-adb logcat -T '2023-06-05'
+`adb logcat -T '2023-06-05'`
 
 https://sleticalboy.github.io/android/2020/03/25/logcat-doc/
